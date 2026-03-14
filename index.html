@@ -1,1 +1,101 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Enroll</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0f172a;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+max-width:900px;
+width:95%;
+text-align:center;
+}
+
+.course-img{
+width:100%;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+cursor:pointer;
+transition:0.4s;
+}
+
+.course-img:hover{
+transform:scale(1.02);
+}
+
+.enroll-btn{
+margin-top:20px;
+padding:15px 40px;
+font-size:20px;
+color:white;
+background:transparent;
+border:2px solid #ff3b3b;
+border-radius:40px;
+cursor:pointer;
+transition:0.3s;
+position:relative;
+overflow:hidden;
+}
+
+.enroll-btn:hover{
+background:#ff3b3b;
+box-shadow:0 0 20px #ff3b3b;
+}
+
+.hidden{
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Course Image -->
+<img src="course.jpg" class="course-img" id="courseImage">
+
+<!-- Animated Button -->
+<button class="enroll-btn" id="payBtn">
+ENROLL NOW - ₹51
+</button>
+
+<!-- Razorpay Payment Button -->
+<div class="hidden" id="paymentBox">
+<form>
+<script src="https://checkout.razorpay.com/v1/payment-button.js"
+data-payment_button_id="pl_SRC6QrXaO1u6Lz" async>
+</script>
+</form>
+</div>
+
+</div>
+
+<script>
+
+// image click = payment open
+document.getElementById("courseImage").onclick = function(){
+document.querySelector("#paymentBox form button").click();
+}
+
+// button click = payment open
+document.getElementById("payBtn").onclick = function(){
+document.querySelector("#paymentBox form button").click();
+}
+
+</script>
+
+</body>
+</html>
