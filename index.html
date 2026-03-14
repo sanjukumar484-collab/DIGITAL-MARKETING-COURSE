@@ -1,12 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Course Enroll</title>
+<title>₹51 Course Offer</title>
 
 <style>
+
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
@@ -14,12 +14,12 @@ background:#0f172a;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
+min-height:100vh;
 }
 
 .container{
-max-width:900px;
 width:95%;
+max-width:900px;
 text-align:center;
 }
 
@@ -37,7 +37,7 @@ transform:scale(1.02);
 
 .enroll-btn{
 margin-top:20px;
-padding:15px 40px;
+padding:16px 45px;
 font-size:20px;
 color:white;
 background:transparent;
@@ -45,8 +45,6 @@ border:2px solid #ff3b3b;
 border-radius:40px;
 cursor:pointer;
 transition:0.3s;
-position:relative;
-overflow:hidden;
 }
 
 .enroll-btn:hover{
@@ -57,6 +55,7 @@ box-shadow:0 0 20px #ff3b3b;
 .hidden{
 display:none;
 }
+
 </style>
 </head>
 
@@ -64,36 +63,35 @@ display:none;
 
 <div class="container">
 
-<!-- Course Image -->
-<img src="course.jpg" class="course-img" id="courseImage">
+<img src="course51.jpg" class="course-img" id="courseImage">
 
-<!-- Animated Button -->
+<br>
+
 <button class="enroll-btn" id="payBtn">
-ENROLL NOW - ₹51
+ENROLL NOW ₹51
 </button>
 
-<!-- Razorpay Payment Button -->
 <div class="hidden" id="paymentBox">
+
 <form>
 <script src="https://checkout.razorpay.com/v1/payment-button.js"
-data-payment_button_id="pl_SRC6QrXaO1u6Lz" async>
+data-payment_button_id="pl_SRC6QrXaO1u6Lz"
+async>
 </script>
 </form>
+
 </div>
 
 </div>
 
 <script>
 
-// image click = payment open
-document.getElementById("courseImage").onclick = function(){
+function openPayment(){
 document.querySelector("#paymentBox form button").click();
 }
 
-// button click = payment open
-document.getElementById("payBtn").onclick = function(){
-document.querySelector("#paymentBox form button").click();
-}
+document.getElementById("courseImage").onclick=openPayment;
+document.getElementById("payBtn").onclick=openPayment;
 
 </script>
 
