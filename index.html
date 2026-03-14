@@ -3,30 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>₹51 Course Offer</title>
 
 <style>
 
-body{
+*{
+box-sizing:border-box;
 margin:0;
+padding:0;
+}
+
+body{
 font-family:Arial, Helvetica, sans-serif;
-background:#0f172a;
+background:linear-gradient(135deg,#0f172a,#1e293b);
 display:flex;
 justify-content:center;
 align-items:center;
 min-height:100vh;
+padding:20px;
 }
 
 .container{
-width:95%;
+width:100%;
 max-width:900px;
 text-align:center;
 }
 
 .course-img{
 width:100%;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.6);
+border-radius:18px;
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
 cursor:pointer;
 transition:0.4s;
 }
@@ -35,40 +42,56 @@ transition:0.4s;
 transform:scale(1.02);
 }
 
-.enroll-btn{
+.price{
 margin-top:20px;
+font-size:32px;
+font-weight:bold;
+color:#22c55e;
+}
+
+.btn{
+margin-top:25px;
 padding:16px 45px;
 font-size:20px;
-color:white;
 background:transparent;
-border:2px solid #ff3b3b;
+color:white;
+border:2px solid #22c55e;
 border-radius:40px;
 cursor:pointer;
 transition:0.3s;
 }
 
-.enroll-btn:hover{
-background:#ff3b3b;
-box-shadow:0 0 20px #ff3b3b;
+.btn:hover{
+background:#22c55e;
+box-shadow:0 0 20px #22c55e;
 }
 
 .hidden{
 display:none;
 }
 
+.footer{
+margin-top:20px;
+color:#94a3b8;
+font-size:14px;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<img src="course51.jpg" class="course-img" id="courseImage">
+<img src="course.png" class="course-img" id="courseImage">
 
-<br>
+<div class="price">
+Course Fee ₹51
+</div>
 
-<button class="enroll-btn" id="payBtn">
-ENROLL NOW ₹51
+<button class="btn" id="payBtn">
+Enroll Now
 </button>
 
 <div class="hidden" id="paymentBox">
@@ -82,16 +105,26 @@ async>
 
 </div>
 
+<div class="footer">
+Secure Payment via Razorpay
+</div>
+
 </div>
 
 <script>
 
 function openPayment(){
-document.querySelector("#paymentBox form button").click();
+
+let payButton = document.querySelector("#paymentBox form button");
+
+if(payButton){
+payButton.click();
 }
 
-document.getElementById("courseImage").onclick=openPayment;
-document.getElementById("payBtn").onclick=openPayment;
+}
+
+document.getElementById("courseImage").addEventListener("click",openPayment);
+document.getElementById("payBtn").addEventListener("click",openPayment);
 
 </script>
 
