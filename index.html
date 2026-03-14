@@ -4,76 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>₹51 Course Offer</title>
+<title>₹51 Course</title>
 
 <style>
 
-*{
-box-sizing:border-box;
+body{
 margin:0;
 padding:0;
-}
-
-body{
-font-family:Arial, Helvetica, sans-serif;
-background:linear-gradient(135deg,#0f172a,#1e293b);
+background:#0f172a;
 display:flex;
 justify-content:center;
 align-items:center;
-min-height:100vh;
-padding:20px;
+height:100vh;
+font-family:Arial;
 }
 
 .container{
-width:100%;
 max-width:900px;
-text-align:center;
+width:95%;
 }
 
-.course-img{
+.course{
 width:100%;
-border-radius:18px;
-box-shadow:0 20px 40px rgba(0,0,0,0.6);
 cursor:pointer;
+border-radius:15px;
+box-shadow:0 15px 40px rgba(0,0,0,0.6);
 transition:0.4s;
 }
 
-.course-img:hover{
+.course:hover{
 transform:scale(1.02);
-}
-
-.price{
-margin-top:20px;
-font-size:32px;
-font-weight:bold;
-color:#22c55e;
-}
-
-.btn{
-margin-top:25px;
-padding:16px 45px;
-font-size:20px;
-background:transparent;
-color:white;
-border:2px solid #22c55e;
-border-radius:40px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.btn:hover{
-background:#22c55e;
-box-shadow:0 0 20px #22c55e;
 }
 
 .hidden{
 display:none;
-}
-
-.footer{
-margin-top:20px;
-color:#94a3b8;
-font-size:14px;
 }
 
 </style>
@@ -84,20 +48,13 @@ font-size:14px;
 
 <div class="container">
 
-<img src="course.png" class="course-img" id="courseImage">
+<img src="course.png" class="course" id="courseImg">
 
-<div class="price">
-Course Fee ₹51
-</div>
-
-<button class="btn" id="payBtn">
-Enroll Now
-</button>
-
-<div class="hidden" id="paymentBox">
+<div class="hidden" id="pay">
 
 <form>
-<script src="https://checkout.razorpay.com/v1/payment-button.js"
+<script 
+src="https://checkout.razorpay.com/v1/payment-button.js"
 data-payment_button_id="pl_SRC6QrXaO1u6Lz"
 async>
 </script>
@@ -105,26 +62,15 @@ async>
 
 </div>
 
-<div class="footer">
-Secure Payment via Razorpay
-</div>
-
 </div>
 
 <script>
 
 function openPayment(){
-
-let payButton = document.querySelector("#paymentBox form button");
-
-if(payButton){
-payButton.click();
+document.querySelector("#pay form button").click();
 }
 
-}
-
-document.getElementById("courseImage").addEventListener("click",openPayment);
-document.getElementById("payBtn").addEventListener("click",openPayment);
+document.getElementById("courseImg").onclick=openPayment;
 
 </script>
 
