@@ -14,18 +14,28 @@ display:flex;
 justify-content:center;
 align-items:center;
 min-height:100vh;
+font-family:Arial;
 }
 
-img{
+.container{
+position:relative;
 width:95%;
 max-width:900px;
-cursor:pointer;
-border-radius:10px;
+}
+
+.container img{
+width:100%;
+border-radius:12px;
 box-shadow:0 10px 40px rgba(0,0,0,0.8);
 }
 
-.hidden{
-display:none;
+/* Razorpay button position */
+
+.pay-btn{
+position:absolute;
+bottom:8%;
+left:50%;
+transform:translateX(-50%);
 }
 
 </style>
@@ -34,9 +44,11 @@ display:none;
 
 <body>
 
-<img src="course51.png" id="course">
+<div class="container">
 
-<div class="hidden" id="pay">
+<img src="course51.png">
+
+<div class="pay-btn">
 
 <form>
 <script src="https://checkout.razorpay.com/v1/payment-button.js"
@@ -47,19 +59,7 @@ async>
 
 </div>
 
-<script>
-
-document.getElementById("course").onclick=function(){
-
-var btn=document.querySelector("#pay form button");
-
-if(btn){
-btn.click();
-}
-
-}
-
-</script>
+</div>
 
 </body>
 </html>
