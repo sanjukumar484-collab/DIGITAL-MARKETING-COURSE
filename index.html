@@ -3,36 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>₹51 Course</title>
 
 <style>
 
 body{
 margin:0;
-padding:0;
 background:#0f172a;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
-font-family:Arial;
+min-height:100vh;
+font-family:Arial, sans-serif;
 }
 
 .container{
-max-width:900px;
 width:95%;
+max-width:900px;
+text-align:center;
 }
 
-.course{
+.course-img{
 width:100%;
-cursor:pointer;
 border-radius:15px;
-box-shadow:0 15px 40px rgba(0,0,0,0.6);
+cursor:pointer;
+box-shadow:0 10px 35px rgba(0,0,0,0.6);
 transition:0.4s;
 }
 
-.course:hover{
+.course-img:hover{
 transform:scale(1.02);
 }
 
@@ -48,13 +47,12 @@ display:none;
 
 <div class="container">
 
-<img src="course.png" class="course" id="courseImg">
+<img src="course51.png" class="course-img" id="courseImage">
 
-<div class="hidden" id="pay">
+<div class="hidden" id="paymentBox">
 
 <form>
-<script 
-src="https://checkout.razorpay.com/v1/payment-button.js"
+<script src="https://checkout.razorpay.com/v1/payment-button.js"
 data-payment_button_id="pl_SRC6QrXaO1u6Lz"
 async>
 </script>
@@ -67,10 +65,13 @@ async>
 <script>
 
 function openPayment(){
-document.querySelector("#pay form button").click();
+let btn=document.querySelector("#paymentBox form button");
+if(btn){
+btn.click();
+}
 }
 
-document.getElementById("courseImg").onclick=openPayment;
+document.getElementById("courseImage").addEventListener("click",openPayment);
 
 </script>
 
